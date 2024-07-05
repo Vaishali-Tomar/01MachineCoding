@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const AnagramChecker = () => {
-  const [word1, setWord1] = useState('');
-  const [word2, setWord2] = useState('');
+  const [word1, setWord1] = useState("");
+  const [word2, setWord2] = useState("");
   const [isAnagram, setIsAnagram] = useState(null);
 
   const handleCheckAnagram = () => {
-    const normalize = (str) => str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
-    const normalizedWord1 = normalize(word1);
-    const normalizedWord2 = normalize(word2);
-    setIsAnagram(normalizedWord1 === normalizedWord2);
+    const normalize = (str) =>
+      str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
   };
-
+    const normalizeWord1 = normalize(word1);
+    const normalixeWord2 = normalize(word2);
   return (
     <div>
       <h1>Anagram Checker</h1>
@@ -29,7 +28,11 @@ const AnagramChecker = () => {
       />
       <button onClick={handleCheckAnagram}>Check</button>
       {isAnagram !== null && (
-        <h2>{isAnagram ? 'The words are anagrams!' : 'The words are not anagrams.'}</h2>
+        <h2>
+          {isAnagram
+            ? "The words are anagrams!"
+            : "The words are not anagrams."}
+        </h2>
       )}
     </div>
   );
