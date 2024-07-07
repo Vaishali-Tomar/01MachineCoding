@@ -8,9 +8,13 @@ const AnagramChecker = () => {
   const handleCheckAnagram = () => {
     const normalize = (str) =>
       str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
-  };
+
     const normalizeWord1 = normalize(word1);
-    const normalixeWord2 = normalize(word2);
+    const normalizeWord2 = normalize(word2);
+
+    setIsAnagram(normalizeWord1 === normalizeWord2);
+  };
+
   return (
     <div>
       <h1>Anagram Checker</h1>
