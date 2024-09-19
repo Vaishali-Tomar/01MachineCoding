@@ -43,19 +43,17 @@ const QuoteGenerator = () => {
   const [selectedTag, setSelectedTag] = useState("");
 
   const generateQuote = () => {
-    const filteredQuotes = selectedTag
-      ? quotes.filter((q) => q.tags.includes(selectedTag))
-      : quotes;
-    const randomIndex = Math.floor(Math.random() * filteredQuotes.length);
-    setQuote(filteredQuotes[randomIndex]);
-  };
+    const filterQuotes = selectedTag ?
+    quotes.filter((q) => tags.includes(selectedTag)) : quotes;
+    const randomIndex = Math.floor(Math.random() * filterQuotes.length);
+    setQuote(filterQuotes[randomIndex]);
+  }
 
   const handleTagChange = (e) => {
     setSelectedTag(e.target.value);
-  };
+  }
 
-  const uniqueTags = [...new Set(quotes.flatMap((quote) => quote.tags))];
-
+  const uniqueTags = [...new Set(quotes.flatMap((quote) => quote.tags))]
   return (
     <div>
       <h1>Quote Generator</h1>
@@ -63,14 +61,13 @@ const QuoteGenerator = () => {
         "{quote.text}" - {quote.author}
       </p>
       <button onClick={generateQuote}>Generate New Quote</button>
+      
       <div>
-        <label htmlFor="tags">Filter by tag:</label>
-        <select id="tags" value={selectedTag} onChange={handleTagChange}>
+        <label htmlFor="">filter by Tags:</label>
+        <select name="" id="" value={selectedTag} onChange={handleTagChange}>
           <option value="">All</option>
-          {uniqueTags.map((tag) => (
-            <option key={tag} value={tag}>
-              {tag}
-            </option>
+          {uniqueTags.map((tag) =>(
+            <option key={tag} value={tag}>{tag}</option>
           ))}
         </select>
       </div>

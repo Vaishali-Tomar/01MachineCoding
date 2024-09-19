@@ -29,10 +29,11 @@ const LightDarkMode = () => {
       };
   return (
     <div style={darkMode ? lightStyle : darkStyle}>
-        <h1>{darkMode ? "DarkMode" : "lightMode"}</h1>
-       <button onClick={toggleMode}>
-        Switch to {darkMode ? "LightMode" : "DarkMode"}
-       </button>
+      <h1>{darkMode ? "darkMode" : "lightMode"}</h1>
+      <button onClick={toggleMode}>
+           switch to {darkMode ? 'LightMode' : 'darkMode'}
+          
+      </button>
     </div>
   )
 }

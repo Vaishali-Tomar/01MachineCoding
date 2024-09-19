@@ -6,23 +6,25 @@ const GuessNumber = () => {
   const [message, setMessage] = useState('');
   const [number, setNumber] = useState(Math.floor(Math.random() * 100) + 1);
   const [attempts, setAttempts] = useState(0);
-
+  
   const handleChange = (e) => {
     setGuess(e.target.value);
-  };
+  } 
 
-  const handleGuess = () => {
-    const userGuess = parseInt(guess, 10);
+  const handleGuess = () =>{
+    const userGuss = parseInt(guess, 10);
     setAttempts(attempts + 1);
 
-    if (userGuess === number) {
+    if(userGuss === number){
       setMessage(`Congratulations! You guessed the number in ${attempts + 1} attempts.`);
-    } else if (userGuess < number) {
-      setMessage('Too low! Try again.');
-    } else {
-      setMessage('Too high! Try again.');
-    }
-  };
+     } else if(userGuss < number){
+      setMessage("You choose low");
+     }else{
+      setMessage('you choose high');
+     }
+    
+  }
+  
 
   const handleRestart = () => {
     setNumber(Math.floor(Math.random() * 100) + 1);
